@@ -1,0 +1,44 @@
+/* Estilo inspirado em Piratas do Caribe */
+body {
+    background: url('../imagens/mapa-pirata.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Pirata One', cursive;
+    color: #d4af37;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+header {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    text-align: center;
+    font-size: 2em;
+    border-bottom: 3px solid #d4af37;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #d4af37;
+    font-size: 1.5em;
+    padding: 10px 20px;
+    border: 2px solid #d4af37;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    background: #d4af37;
+    color: black;
+    text-shadow: none;
+}

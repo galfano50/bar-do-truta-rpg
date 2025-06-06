@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar do Truta RPG</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Firebase - Importação como módulo -->
+    <script type="module" src="js/firebase-config.js"></script>
+    <script type="module" src="js/auth.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Bar do Truta RPG</h1>
+        <button id="logout-btn">Sair</button>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="Armas.html" target="_blank">Armas</a></li>
+            <li><a href="Jogabilidade.html" target="_blank">Jogabilidade</a></li>
+            <li><a href="Escala.html" target="_blank">Escala</a></li>
+            <li><a href="Estilos.html" target="_blank">Estilos</a></li>
+            <li><a href="Ficha.html" target="_blank">Ficha</a></li>
+            <li><a href="Ficha-Navio.html" target="_blank">Ficha-Navio</a></li>
+            <li><a href="Hakis.html" target="_blank">Hakis</a></li>
+            <li><a href="Individualidades.html" target="_blank">Individualidades</a></li>
+            <li><a href="Regras.html" target="_blank">Regras</a></li>
+            <li><a href="Navios.html" target="_blank">Navios</a></li>
+            <li><a href="PassagemNivel.html" target="_blank">Passagem de Nível</a></li>
+            <li><a href="Racas.html" target="_blank">Raças</a></li>
+            <li><a href="Ferreiro.html" target="_blank">Ferreiro</a></li>
+            <li><a href="Status.html" target="_blank">Status</a></li>
+            <li><a href="Treinos.html" target="_blank">Treinos</a></li>
+            <li><a href="Tecnicas.html" target="_blank">Técnicas</a></li>
+        </ul>
+    </nav>
+
+    <script type="module">
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+        import { app } from "./js/firebase-config.js";
+
+        const auth = getAuth(app);
+
+        // Verificar se o usuário está autenticado
+        onAuthStateChanged(auth, (user) => {
+            if (!user) {
+                window.location.href = "index.html"; // Redireciona para a tela de login se não estiver autenticado
+            }
+        });
+
+        // Função de logout
+        document.getElementById("logout-btn").addEventListener("click", () => {
+            signOut(auth).then(() => {
+                window.location.href = "index.html"; // Redireciona após logout
+            }).catch((error) => {
+                console.error("Erro ao deslogar:", error.message);
+            });
+        });
+    </script>
+</body>
+</html>
